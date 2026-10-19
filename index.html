@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
@@ -259,162 +260,323 @@
   ]
 }
 </script>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Figtree:wght@400;500;700;800&display=swap">
 <style>
+  /* Layout: one column that opens into a 3-up grid past 940px. The quote builder is the
+     only place the page stops being a document and becomes a tool. */
   :root{
-    --ink:#2a1c12; --body:#6b584a; --muted:#8a7667; --faint:#a89481;
-    --cream:#fbf7ec; --wash:#f6efdf; --line:#eadfc9; --white:#fffdf8;
-    --butter:#f8dd91; --butter-d:#edc85c; --cocoa:#4a2c17;
+    --ink:#241709; --body:#6a5848; --muted:#8c7866; --faint:#ab978a;
+    --paper:#fffdf8; --cream:#fbf6ea; --wash:#f5eddd; --line:#e9dcc4;
+    --peel:#f8dd91; --peel-d:#e9c23f; --cocoa:#4a2c17; --bark:#2f1b0c;
+    --leaf:#2f7d4f; --leaf-soft:#e6f2e9;
+    --display:"Bricolage Grotesque", ui-sans-serif, Georgia, serif;
+    --text:"Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
   *{box-sizing:border-box;min-width:0}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-  body{margin:0;background:var(--white);color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased;line-height:1.55}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:84px}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--text);
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
   img{max-width:100%;height:auto;display:block}
   a{color:inherit}
-  .wrap{width:100%;max-width:1060px;margin:0 auto;padding:0 20px}
+  :focus-visible{outline:3px solid var(--cocoa);outline-offset:2px;border-radius:6px}
+  .wrap{width:100%;max-width:1060px;margin:0 auto;padding-inline:20px}
 
-  header{position:sticky;top:0;z-index:40;background:rgba(255,253,248,.93);
-    backdrop-filter:saturate(150%) blur(8px);border-bottom:1px solid var(--line)}
-  .bar{display:flex;align-items:center;gap:14px;padding:10px 0}
-  .bar img{width:116px}
-  .bar nav{margin-left:auto;display:none;gap:26px;font-weight:700;font-size:14.5px}
-  .bar nav a{text-decoration:none;color:var(--body)}
-  .bar nav a:hover{color:var(--cocoa)}
+  h1,h2,h3,.num{font-family:var(--display);font-weight:800;letter-spacing:-.02em;
+    text-wrap:balance}
+  h1{font-size:clamp(34px,7vw,60px);line-height:1.02;margin:0 0 16px;color:var(--bark)}
+  h2{font-size:clamp(25px,4.2vw,38px);line-height:1.1;margin:0 0 14px;color:var(--bark)}
+  h3{font-size:18px;line-height:1.25;margin:0}
+
+  /* ---------- header ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,253,248,.9);
+    backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;gap:16px;padding-block:9px}
+  .bar>img{width:104px}
+  .bar nav{margin-left:auto;display:none;gap:4px}
+  .bar nav a{text-decoration:none;color:var(--body);font-weight:600;font-size:14.5px;
+    padding:7px 11px;border-radius:8px;transition:background .15s,color .15s}
+  .bar nav a:hover{background:var(--wash);color:var(--cocoa)}
+  .bar nav a[aria-current="true"]{color:var(--cocoa);background:var(--wash)}
   .bar .hcta{margin-left:auto}
-  .bar nav + .hcta{margin-left:0}
-  @media(min-width:880px){ .bar nav{display:flex} }
+  .bar nav+.hcta{margin-left:0}
+  @media(min-width:900px){ .bar nav{display:flex} }
 
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
-    border:0;border-radius:11px;padding:14px 22px;font-size:15.5px;font-weight:800;
-    font-family:inherit;text-decoration:none;cursor:pointer;letter-spacing:-.2px;
-    background:var(--butter);color:var(--cocoa);transition:background .13s,transform .08s}
-  .btn:hover{background:var(--butter-d)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;
+    border-radius:12px;padding:15px 24px;font-family:var(--text);font-size:16px;
+    font-weight:800;text-decoration:none;cursor:pointer;background:var(--peel);
+    color:var(--cocoa);transition:background .15s,transform .08s}
+  .btn:hover{background:var(--peel-d)}
   .btn:active{transform:translateY(1px)}
-  .btn.sm{padding:10px 16px;font-size:14px;border-radius:9px}
+  .btn.sm{padding:9px 15px;font-size:14px;border-radius:9px}
   .btn.out{background:transparent;color:var(--cocoa);box-shadow:inset 0 0 0 2px var(--line)}
   .btn.out:hover{background:var(--wash)}
+  .btn[disabled]{background:var(--wash);color:var(--faint);cursor:not-allowed}
 
-  .hero{background:linear-gradient(#fdeec2 0, #fbf3dd 58%, var(--white) 100%);
-    padding:44px 0 54px;text-align:center}
-  .hero img.mark{width:220px;margin:0 auto 20px}
-  h1{font-size:clamp(31px,7.4vw,56px);line-height:1.06;letter-spacing:-1.5px;
-    font-weight:800;margin:0 0 16px;color:var(--cocoa)}
-  .answer{font-size:clamp(15.5px,2.3vw,18px);color:var(--body);max-width:60ch;margin:0 auto 24px}
-  .answer b{color:var(--ink)}
+  /* ---------- hero ---------- */
+  .hero{background:linear-gradient(var(--cream) 0,#fdf5e3 55%,var(--paper) 100%);
+    padding-block:42px 54px;text-align:center;overflow:hidden}
+  .hero .mark{width:206px;margin:0 auto 18px;animation:rise .7s cubic-bezier(.2,.8,.3,1) both}
+  .answer{font-size:clamp(16px,2.2vw,18.5px);color:var(--body);max-width:58ch;
+    margin:0 auto 26px}
+  .answer b{color:var(--ink);font-weight:700}
   .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-  .trust{display:flex;gap:10px 28px;justify-content:center;flex-wrap:wrap;
-    margin-top:24px;color:var(--muted);font-size:13.5px;font-weight:700}
-  .trust span::before{content:"\2713  ";color:#2f9960;font-weight:800}
+  .trust{display:flex;gap:9px 26px;justify-content:center;flex-wrap:wrap;margin-top:24px;
+    color:var(--muted);font-size:13.5px;font-weight:700}
+  .trust span::before{content:"\2713\00a0\00a0";color:var(--leaf);font-weight:800}
+  @keyframes rise{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
 
-  section{padding:60px 0}
+  /* ---------- sections ---------- */
+  section{padding-block:62px}
   section.alt{background:var(--cream);border-block:1px solid var(--line)}
-  .eyebrow{font-size:11.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
-    color:var(--faint);margin:0 0 10px;text-align:center}
-  h2{font-size:clamp(24px,4.2vw,37px);line-height:1.14;letter-spacing:-.9px;font-weight:800;
-    margin:0 0 14px;text-align:center;color:var(--cocoa)}
-  h3{letter-spacing:-.3px}
-  .lead{text-align:center;color:var(--body);max-width:62ch;margin:0 auto 36px;font-size:16px}
-  .lead b{color:var(--ink)}
+  .eyebrow{font-family:var(--text);font-size:11.5px;font-weight:800;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--faint);margin:0 0 9px;text-align:center}
+  .lead{text-align:center;color:var(--body);max-width:62ch;margin:0 auto 36px}
+  .lead b{color:var(--ink);font-weight:700}
 
-  .grid{display:grid;gap:16px;grid-template-columns:1fr}
+  /* ---------- quote builder ---------- */
+  .q{max-width:720px;margin:0 auto;background:var(--paper);border:1px solid var(--line);
+    border-radius:20px;overflow:hidden;box-shadow:0 1px 2px rgba(74,44,23,.04),0 16px 40px rgba(74,44,23,.07)}
+  .q-body{padding:22px}
+  .q-label{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--faint);margin:0 0 10px}
+  .q-group+.q-group{margin-top:22px}
+  .chips{display:flex;gap:9px;flex-wrap:wrap}
+  .chip{flex:1 1 150px;position:relative}
+  .chip input{position:absolute;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
+  .chip span{display:block;text-align:center;padding:12px 10px;border-radius:12px;
+    border:2px solid var(--line);font-weight:700;font-size:14.5px;color:var(--body);
+    transition:border-color .15s,background .15s,color .15s}
+  .chip small{display:block;font-weight:600;font-size:12px;color:var(--faint);margin-top:2px}
+  .chip input:checked+span{border-color:var(--cocoa);background:var(--wash);color:var(--cocoa)}
+  .chip input:focus-visible+span{outline:3px solid var(--cocoa);outline-offset:2px}
+
+  .picks{display:grid;gap:8px;grid-template-columns:1fr}
+  @media(min-width:560px){ .picks{grid-template-columns:1fr 1fr} }
+  .pick{position:relative}
+  .pick input{position:absolute;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
+  .pick span{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;
+    border:2px solid var(--line);font-weight:700;font-size:14.5px;transition:border-color .15s,background .15s}
+  .pick span::before{content:"";width:19px;height:19px;border-radius:6px;flex:0 0 19px;
+    border:2px solid var(--line);transition:background .15s,border-color .15s}
+  .pick input:checked+span{border-color:var(--cocoa);background:var(--wash)}
+  .pick input:checked+span::before{background:var(--cocoa);border-color:var(--cocoa)}
+  .pick input:focus-visible+span{outline:3px solid var(--cocoa);outline-offset:2px}
+  .pick em{margin-left:auto;font-style:normal;color:var(--muted);font-weight:700;font-size:13.5px;
+    font-variant-numeric:tabular-nums}
+
+  .q-out{background:var(--wash);border-top:1px solid var(--line);padding:20px 22px;
+    display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .q-total{font-family:var(--display);font-size:38px;font-weight:800;line-height:1;
+    color:var(--bark);font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+  .q-total .cur{font-size:22px;vertical-align:super;margin-right:1px}
+  .q-note{color:var(--muted);font-size:12.5px;max-width:30ch;line-height:1.45}
+  .q-act{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
+  .q-lines{margin:0;padding:0;list-style:none;font-size:13.5px;color:var(--body);
+    flex-basis:100%;order:-1}
+  .q-lines li{display:flex;justify-content:space-between;gap:12px;padding:3px 0;
+    font-variant-numeric:tabular-nums}
+  .q-lines li b{font-weight:700;color:var(--ink)}
+  .q-empty{color:var(--muted);font-size:14.5px}
+
+  /* ---------- services ---------- */
+  .grid{display:grid;gap:14px;grid-template-columns:1fr}
   @media(min-width:620px){ .grid{grid-template-columns:repeat(2,1fr)} }
   @media(min-width:940px){ .grid{grid-template-columns:repeat(3,1fr)} }
-  .svc{background:var(--white);border:1px solid var(--line);border-radius:17px;padding:22px;
-    display:flex;flex-direction:column;gap:7px}
-  .svc h3{margin:0;font-size:18.5px;font-weight:800}
-  .svc p{margin:0;color:var(--body);font-size:14.5px;flex:1}
-  .svc .price{margin-top:8px;font-size:15px;font-weight:800;color:var(--cocoa)}
-  .note{text-align:center;color:var(--muted);font-size:13.5px;margin-top:26px;max-width:56ch;
+  .svc{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:0;
+    transition:border-color .15s,transform .15s,box-shadow .15s}
+  .svc:hover{border-color:#d9c6a4;transform:translateY(-2px);
+    box-shadow:0 10px 26px rgba(74,44,23,.08)}
+  .svc>summary{list-style:none;cursor:pointer;padding:20px;display:flex;
+    align-items:flex-start;gap:12px}
+  .svc>summary::-webkit-details-marker{display:none}
+  .svc .sname{flex:1}
+  .svc .price{font-weight:800;color:var(--cocoa);white-space:nowrap;
+    font-variant-numeric:tabular-nums}
+  .svc .chev{color:var(--faint);font-weight:800;transition:transform .2s;line-height:1}
+  .svc[open] .chev{transform:rotate(90deg)}
+  .svc p{margin:6px 0 0;color:var(--body);font-size:14.5px}
+  .svc .more{padding:0 20px 20px;margin:0;list-style:none;border-top:1px solid var(--line);
+    padding-top:14px;margin-inline:20px;margin-bottom:18px}
+  .svc .more li{font-size:13.5px;color:var(--body);padding-left:20px;position:relative;
+    padding-block:3px}
+  .svc .more li::before{content:"\2713";position:absolute;left:0;color:var(--leaf);font-weight:800}
+  .note{text-align:center;color:var(--muted);font-size:13.5px;margin-top:24px;max-width:58ch;
     margin-inline:auto}
 
-  .tablewrap{overflow-x:auto;margin:0 auto;max-width:800px}
-  table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:540px}
+  /* ---------- table ---------- */
+  .tablewrap{overflow-x:auto;max-width:820px;margin-inline:auto}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:560px}
   caption{caption-side:top;text-align:center;color:var(--muted);font-size:13.5px;padding-bottom:12px}
-  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}
-  thead th{font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--faint);
-    background:var(--wash)}
+  th,td{text-align:left;padding:13px 14px;border-bottom:1px solid var(--line)}
+  thead th{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);
+    background:var(--wash);font-family:var(--text)}
   tbody th{font-weight:800;color:var(--ink)}
   td{color:var(--body)}
-  tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+  tbody tr:last-child>*{border-bottom:0}
 
-  .steps{display:grid;gap:26px;grid-template-columns:1fr}
+  /* ---------- steps ---------- */
+  .steps{display:grid;gap:24px;grid-template-columns:1fr;list-style:none;padding:0;margin:0;
+    counter-reset:step}
   @media(min-width:760px){ .steps{grid-template-columns:repeat(4,1fr)} }
-  .step .n{font-size:13px;font-weight:800;color:var(--cocoa);background:var(--butter);
-    width:38px;height:38px;border-radius:50%;display:flex;align-items:center;
-    justify-content:center;margin-bottom:12px}
-  .step h3{margin:0 0 5px;font-size:17px;font-weight:800}
-  .step p{margin:0;color:var(--body);font-size:14.5px}
+  .step{counter-increment:step}
+  .step .num{width:40px;height:40px;border-radius:50%;background:var(--peel);
+    color:var(--cocoa);display:flex;align-items:center;justify-content:center;
+    font-size:14px;margin-bottom:12px}
+  .step .num::before{content:"0" counter(step)}
+  .step p{margin:5px 0 0;color:var(--body);font-size:14.5px}
 
-  .cols{display:grid;gap:28px;grid-template-columns:1fr}
+  /* ---------- included ---------- */
+  .cols{display:grid;gap:26px;grid-template-columns:1fr}
   @media(min-width:800px){ .cols{grid-template-columns:1fr 1fr} }
   .ilist{list-style:none;margin:0;padding:0}
-  .ilist li{padding:11px 0 11px 30px;border-bottom:1px solid var(--line);position:relative;
+  .ilist li{padding:11px 0 11px 28px;border-bottom:1px solid var(--line);position:relative;
     font-size:15px;color:var(--body)}
   .ilist li:last-child{border-bottom:0}
-  .ilist li::before{content:"\2713";position:absolute;left:0;top:11px;color:#2f9960;font-weight:800}
+  .ilist li::before{content:"\2713";position:absolute;left:0;top:11px;color:var(--leaf);font-weight:800}
   .ilist li b{color:var(--ink)}
 
+  /* ---------- faq ---------- */
   .faq{max-width:780px;margin:0 auto}
-  details{border-bottom:1px solid var(--line)}
-  summary{list-style:none;cursor:pointer;padding:0;position:relative}
-  summary::-webkit-details-marker{display:none}
-  summary h3{margin:0;padding:17px 34px 17px 0;font-weight:800;font-size:16.5px}
-  summary::after{content:"+";position:absolute;right:6px;top:16px;font-size:22px;
-    color:var(--faint);font-weight:700}
-  details[open] summary::after{content:"\2212"}
-  details p{margin:0 0 18px;color:var(--body);font-size:15px;padding-right:20px}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{list-style:none;cursor:pointer;position:relative;padding-right:36px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary h3{padding-block:17px;font-size:17px}
+  .faq summary::after{content:"";position:absolute;right:8px;top:24px;width:11px;height:11px;
+    border-right:2.5px solid var(--faint);border-bottom:2.5px solid var(--faint);
+    transform:rotate(45deg);transition:transform .2s}
+  .faq details[open] summary::after{transform:rotate(-135deg);top:28px}
+  .faq p{margin:0 0 18px;color:var(--body);font-size:15px;padding-right:20px}
 
-  .close{background:linear-gradient(180deg,#fbf3dd,#fdeec2);text-align:center}
-  .close .ctas{margin-top:22px}
+  .close{background:linear-gradient(180deg,#fdf5e3,var(--cream));text-align:center}
 
-  footer{background:var(--cocoa);color:#e8dccd;padding:40px 0;text-align:center}
-  footer img{width:118px;margin:0 auto 16px;opacity:.95}
-  footer a{color:var(--butter);font-weight:700;text-decoration:none}
-  footer .fine{color:#b7a391;font-size:12.5px;margin-top:14px;line-height:1.7}
+  footer{background:var(--bark);color:#e4d6c4;padding-block:40px;text-align:center}
+  footer img{width:112px;margin:0 auto 14px}
+  footer a{color:var(--peel);font-weight:700;text-decoration:none}
+  footer .fine{color:#a8907a;font-size:12.5px;margin-top:12px;line-height:1.7}
+
+  /* ---------- sticky phone bar ---------- */
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:10px;
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));
+    background:rgba(255,253,248,.95);backdrop-filter:blur(10px);
+    border-top:1px solid var(--line)}
+  .dock .btn{flex:1}
+  @media(max-width:700px){ .dock{display:flex} body{padding-bottom:76px} }
+
+  /* Reveal starts visible and settles, so nothing is stuck invisible if JS never runs. */
+  @media(prefers-reduced-motion:no-preference){
+    .rv{animation:rv .6s cubic-bezier(.2,.8,.3,1) both;animation-timeline:view();
+      animation-range:entry 0% entry 42%}
+  }
+  @keyframes rv{from{opacity:.35;transform:translateY(16px)}to{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-
 <header>
   <div class="wrap bar">
-    <img src="logo.png" alt="Banana Detail car detailing logo" width="116" height="104">
-    <nav aria-label="Main">
+    <img src="logo.png" alt="Banana Detail car detailing" width="104" height="93">
+    <nav aria-label="Sections">
+      <a href="#quote">Quote</a>
       <a href="#services">Services</a>
       <a href="#choose">Which detail</a>
       <a href="#how">How it works</a>
-      <a href="#included">What's included</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn sm hcta" data-tel href="#services">Call</a>
+    <a class="btn sm hcta" data-tel href="#quote">Call</a>
   </div>
 </header>
 
 <main>
 <div class="hero">
   <div class="wrap">
-    <img class="mark" src="logo.png" alt="Banana Detail mascot holding a wash mitt and spray gun"
-         width="220" height="197" fetchpriority="high">
+    <img class="mark" src="logo.png" width="206" height="185" fetchpriority="high"
+         alt="Banana Detail mascot holding a wash mitt and spray gun">
     <h1>Car Detailing, Done by Hand</h1>
-    <!-- Definitional answer above the fold: 52 words, self-contained, extractable. -->
     <p class="answer"><b>Car detailing is a deep clean and restoration of a vehicle inside
       and out, done by hand rather than by machine.</b> Banana Detail covers interior
       shampooing, exterior decontamination, paint correction and ceramic coating — mobile,
       at your home or work, from $60.</p>
     <div class="ctas">
-      <a class="btn" data-tel href="#services">Call for a quote</a>
-      <a class="btn out" data-sms href="#services">Text a photo</a>
+      <a class="btn" href="#quote">Build a quote</a>
+      <a class="btn out" data-sms href="#quote">Text a photo</a>
     </div>
-    <div class="trust">
-      <span>We come to you</span>
-      <span>Price agreed before we start</span>
-      <span>No deposit to book</span>
-    </div>
+    <p class="trust"><span>We come to you</span><span>Price agreed before we start</span><span>No deposit to book</span></p>
   </div>
 </div>
 
-<section id="services">
+<section id="quote">
+  <div class="wrap">
+    <p class="eyebrow">Instant estimate</p>
+    <h2>What will my detail cost?</h2>
+    <p class="lead"><b>Pick the vehicle, how rough it is, and what you want done.</b> The
+      figure updates as you go. It's an estimate, not a bill — the real price is confirmed
+      once the car has been seen.</p>
+
+    <form class="q rv" id="quote-form">
+      <div class="q-body">
+        <div class="q-group">
+          <p class="q-label" id="lbl-size">Vehicle</p>
+          <div class="chips" role="radiogroup" aria-labelledby="lbl-size">
+            <label class="chip"><input type="radio" name="size" value="1" checked>
+              <span>Car<small>Sedan, coupe, hatch</small></span></label>
+            <label class="chip"><input type="radio" name="size" value="1.15">
+              <span>SUV<small>Crossover, wagon</small></span></label>
+            <label class="chip"><input type="radio" name="size" value="1.3">
+              <span>Truck or van<small>Pickup, 7-seater</small></span></label>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <p class="q-label" id="lbl-cond">Condition</p>
+          <div class="chips" role="radiogroup" aria-labelledby="lbl-cond">
+            <label class="chip"><input type="radio" name="cond" value="1" checked>
+              <span>Tidy<small>Kept on top of</small></span></label>
+            <label class="chip"><input type="radio" name="cond" value="1.15">
+              <span>Average<small>Daily driver</small></span></label>
+            <label class="chip"><input type="radio" name="cond" value="1.35">
+              <span>Rough<small>Pets, kids, a while</small></span></label>
+          </div>
+        </div>
+
+        <div class="q-group">
+          <p class="q-label" id="lbl-svc">Services</p>
+          <div class="picks" role="group" aria-labelledby="lbl-svc">
+            <label class="pick"><input type="checkbox" data-svc="Express Wash &amp; Wax" value="60">
+              <span>Express Wash &amp; Wax <em>$60</em></span></label>
+            <label class="pick"><input type="checkbox" data-svc="Interior Detail" value="150" checked>
+              <span>Interior Detail <em>$150</em></span></label>
+            <label class="pick"><input type="checkbox" data-svc="Exterior Detail" value="140" checked>
+              <span>Exterior Detail <em>$140</em></span></label>
+            <label class="pick"><input type="checkbox" data-svc="Paint Correction" value="400">
+              <span>Paint Correction <em>$400</em></span></label>
+            <label class="pick"><input type="checkbox" data-svc="Ceramic Coating" value="650">
+              <span>Ceramic Coating <em>$650</em></span></label>
+            <label class="pick"><input type="checkbox" data-svc="Engine Bay Cleaning" value="70">
+              <span>Engine Bay <em>$70</em></span></label>
+            <label class="pick"><input type="checkbox" data-svc="Headlight Restoration" value="80">
+              <span>Headlights <em>$80</em></span></label>
+            <label class="pick"><input type="checkbox" data-svc="Pet Hair &amp; Odour Removal" value="60">
+              <span>Pet hair &amp; odour <em>$60</em></span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-out">
+        <ul class="q-lines" id="q-lines"></ul>
+        <div>
+          <div class="q-total" id="q-total" aria-live="polite"><span class="cur">$</span>290</div>
+          <p class="q-note" id="q-note">Based on a tidy car.</p>
+        </div>
+        <div class="q-act">
+          <a class="btn" data-sms-quote href="#services">Text this quote</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="alt" id="services">
   <div class="wrap">
     <p class="eyebrow">Services</p>
     <h2>How much does car detailing cost?</h2>
@@ -422,53 +584,78 @@
       full detail inside and out.</b> Paint correction starts at $400, ceramic coating at
       $650. The final figure depends on the size and condition of the vehicle, and it is
       agreed with you before any work begins.</p>
-    <div class="grid">
-      <article class="svc"><h3>Express Wash &amp; Wax</h3>
-        <p>Hand wash, dry and a protective wax. The regular top-up between bigger details.</p>
-        <p class="price">from $60</p></article>
-      <article class="svc"><h3>Interior Detail</h3>
-        <p>Vacuum throughout, steam and shampoo, plastics and leather cleaned and dressed,
-          glass streak-free.</p>
-        <p class="price">from $150</p></article>
-      <article class="svc"><h3>Exterior Detail</h3>
-        <p>Decontamination wash, wheels and arches, tyres dressed, trim restored, paint
-          sealed.</p>
-        <p class="price">from $140</p></article>
-      <article class="svc"><h3>Full Detail — In &amp; Out</h3>
-        <p>Everything above in one visit. The one to book if the car hasn't been done in a
-          while.</p>
-        <p class="price">from $250</p></article>
-      <article class="svc"><h3>Paint Correction</h3>
-        <p>Machine polish that removes swirl marks and light scratches instead of hiding
-          them.</p>
-        <p class="price">from $400</p></article>
-      <article class="svc"><h3>Ceramic Coating</h3>
-        <p>Prepped, corrected and coated for years of protection and a much easier wash.</p>
-        <p class="price">from $650</p></article>
-      <article class="svc"><h3>Engine Bay Cleaning</h3>
-        <p>Degreased, rinsed carefully and dressed. Makes a real difference at resale.</p>
-        <p class="price">from $70</p></article>
-      <article class="svc"><h3>Headlight Restoration</h3>
-        <p>Sanded, polished and sealed — back to clear, and safer at night.</p>
-        <p class="price">from $80</p></article>
-      <article class="svc"><h3>Pet Hair &amp; Odour Removal</h3>
-        <p>Hair lifted properly and smells treated at the source, not covered up.</p>
-        <p class="price">from $60</p></article>
+    <div class="grid rv">
+      <details class="svc"><summary><span class="sname"><h3>Express Wash &amp; Wax</h3>
+        <p>Hand wash, dry and a protective wax.</p></span><span class="price">from $60</span>
+        <span class="chev">›</span></summary>
+        <ul class="more"><li>Two-bucket hand wash, no brushes</li><li>Wheels and tyres cleaned</li>
+        <li>Dried with plush towels, no swirls</li><li>Spray wax for a few weeks of protection</li></ul></details>
+
+      <details class="svc"><summary><span class="sname"><h3>Interior Detail</h3>
+        <p>Vacuum, steam, shampoo and dress.</p></span><span class="price">from $150</span>
+        <span class="chev">›</span></summary>
+        <ul class="more"><li>Full vacuum including boot and under mats</li><li>Carpets and seats shampooed</li>
+        <li>Leather cleaned and conditioned</li><li>Plastics and vents dressed matte</li>
+        <li>Glass streak-free inside</li></ul></details>
+
+      <details class="svc"><summary><span class="sname"><h3>Exterior Detail</h3>
+        <p>Decontaminate, restore and seal.</p></span><span class="price">from $140</span>
+        <span class="chev">›</span></summary>
+        <ul class="more"><li>Wheels, barrels and arches</li><li>Tar and fallout removed</li>
+        <li>Trim restored and dressed</li><li>Paint sealed so it stays clean longer</li></ul></details>
+
+      <details class="svc"><summary><span class="sname"><h3>Full Detail — In &amp; Out</h3>
+        <p>Everything above in one visit.</p></span><span class="price">from $250</span>
+        <span class="chev">›</span></summary>
+        <ul class="more"><li>The complete interior detail</li><li>The complete exterior detail</li>
+        <li>Engine bay wiped down</li><li>The one to book before selling</li></ul></details>
+
+      <details class="svc"><summary><span class="sname"><h3>Paint Correction</h3>
+        <p>Machine polish that removes swirls.</p></span><span class="price">from $400</span>
+        <span class="chev">›</span></summary>
+        <ul class="more"><li>Paint depth checked before anything is cut</li>
+        <li>Single-stage machine polish</li><li>Swirls and light scratches removed, not filled</li>
+        <li>Finished with a sealant</li></ul></details>
+
+      <details class="svc"><summary><span class="sname"><h3>Ceramic Coating</h3>
+        <p>Years of protection, easier washes.</p></span><span class="price">from $650</span>
+        <span class="chev">›</span></summary>
+        <ul class="more"><li>Full decontamination and correction first</li>
+        <li>Panels wiped down before coating</li><li>Coating applied and levelled by hand</li>
+        <li>Aftercare explained before we leave</li></ul></details>
+
+      <details class="svc"><summary><span class="sname"><h3>Engine Bay Cleaning</h3>
+        <p>Degreased, rinsed and dressed.</p></span><span class="price">from $70</span>
+        <span class="chev">›</span></summary>
+        <ul class="more"><li>Sensitive components covered first</li><li>Degreased and agitated by hand</li>
+        <li>Plastics and hoses dressed</li><li>Makes a real difference at resale</li></ul></details>
+
+      <details class="svc"><summary><span class="sname"><h3>Headlight Restoration</h3>
+        <p>Back to clear, and safer at night.</p></span><span class="price">from $80</span>
+        <span class="chev">›</span></summary>
+        <ul class="more"><li>Wet sanded through the grits</li><li>Machine polished to clarity</li>
+        <li>Sealed against UV so it lasts</li></ul></details>
+
+      <details class="svc"><summary><span class="sname"><h3>Pet Hair &amp; Odour</h3>
+        <p>Lifted properly, not covered up.</p></span><span class="price">from $60</span>
+        <span class="chev">›</span></summary>
+        <ul class="more"><li>Hair lifted with rubber and brush, then vacuumed</li>
+        <li>Fabric treated at the source of the smell</li><li>Vents and cabin filter checked</li></ul></details>
     </div>
     <p class="note">Starting prices in Canadian dollars. Larger vehicles and heavily soiled
-      interiors take longer, and anything beyond the booked service is quoted before it
-      is started.</p>
+      interiors take longer, and anything beyond the booked service is quoted before it is
+      started.</p>
   </div>
 </section>
 
-<section class="alt" id="choose">
+<section id="choose">
   <div class="wrap">
     <p class="eyebrow">Choosing</p>
     <h2>Which detail does my car need?</h2>
-    <p class="lead"><b>Pick by how long it has been and what is bothering you.</b> If the
-      car is tidy but dull, an express wash keeps it that way. If it is lived in, start
-      inside. If the paint looks hazy in sunlight, that is correction, not washing.</p>
-    <div class="tablewrap">
+    <p class="lead"><b>Pick by how long it has been and what is bothering you.</b> If the car
+      is tidy but dull, an express wash keeps it that way. If it is lived in, start inside.
+      If the paint looks hazy in sunlight, that is correction, not washing.</p>
+    <div class="tablewrap rv">
       <table>
         <caption>Comparing the four most-booked services</caption>
         <thead><tr><th scope="col">Service</th><th scope="col">Best for</th><th scope="col">Takes</th><th scope="col">From</th></tr></thead>
@@ -485,27 +672,27 @@
   </div>
 </section>
 
-<section id="how">
+<section class="alt" id="how">
   <div class="wrap">
     <p class="eyebrow">How it works</p>
     <h2>How do I book a detail?</h2>
     <p class="lead"><b>Four steps: send photos, get a price, confirm by link, and the car
       gets detailed where it is parked.</b> No deposit, no account to create, and no waiting
       days for a quote.</p>
-    <ol class="steps" style="list-style:none;padding:0;margin:0">
-      <li class="step"><div class="n">01</div><h3>Send photos</h3>
+    <ol class="steps rv">
+      <li class="step"><div class="num"></div><h3>Send photos</h3>
         <p>Call or text a couple of photos of the car, inside and out.</p></li>
-      <li class="step"><div class="n">02</div><h3>Get a price</h3>
+      <li class="step"><div class="num"></div><h3>Get a price</h3>
         <p>You get a straight figure and a time, usually the same day.</p></li>
-      <li class="step"><div class="n">03</div><h3>Confirm the booking</h3>
+      <li class="step"><div class="num"></div><h3>Confirm the booking</h3>
         <p>A link lands on your phone with the details and terms. One tap and it's booked.</p></li>
-      <li class="step"><div class="n">04</div><h3>We detail the car</h3>
+      <li class="step"><div class="num"></div><h3>We detail the car</h3>
         <p>We come to you. Pay when it's finished and you've looked it over.</p></li>
     </ol>
   </div>
 </section>
 
-<section class="alt" id="included">
+<section id="included">
   <div class="wrap">
     <p class="eyebrow">What's included</p>
     <h2>What does a full detail actually include?</h2>
@@ -513,74 +700,63 @@
       visit.</b> Inside: vacuum, steam, shampoo, leather and plastics. Outside: a two-bucket
       hand wash, decontamination, wheels and arches, trim, and a sealant so it stays clean
       longer.</p>
-    <div class="cols">
-      <div>
-        <h3 style="font-size:17px;margin:0 0 6px">Inside the car</h3>
+    <div class="cols rv">
+      <div><h3 style="margin-bottom:6px">Inside the car</h3>
         <ul class="ilist">
           <li><b>Full vacuum</b> — seats, rails, boot, under the mats</li>
           <li><b>Steam and shampoo</b> on carpets and upholstery</li>
           <li><b>Leather</b> cleaned and conditioned, not greased</li>
           <li><b>Plastics and vents</b> detailed, dressed matte</li>
           <li><b>Glass</b> inside and out, streak-free</li>
-        </ul>
-      </div>
-      <div>
-        <h3 style="font-size:17px;margin:0 0 6px">Outside the car</h3>
+        </ul></div>
+      <div><h3 style="margin-bottom:6px">Outside the car</h3>
         <ul class="ilist">
           <li><b>Two-bucket hand wash</b> — no brushes, no swirls</li>
           <li><b>Wheels, barrels and arches</b> cleaned properly</li>
           <li><b>Decontamination</b> for tar and embedded fallout</li>
           <li><b>Trim and tyres</b> restored and dressed</li>
           <li><b>Sealant or wax</b> so it stays clean longer</li>
-        </ul>
-      </div>
+        </ul></div>
     </div>
   </div>
 </section>
 
-<section id="faq">
+<section class="alt" id="faq">
   <div class="wrap">
     <p class="eyebrow">FAQ</p>
     <h2>Car detailing questions, answered</h2>
     <div class="faq">
       <details open><summary><h3>What is car detailing?</h3></summary>
-        <p>Car detailing is a deep clean and restoration of a vehicle inside and out, done
-          by hand rather than by machine. It covers vacuuming, shampooing and conditioning
-          the interior, and washing, decontaminating, polishing and protecting the paint
-          outside. A wash cleans a car; a detail restores it.</p></details>
-
+        <p>Car detailing is a deep clean and restoration of a vehicle inside and out, done by
+          hand rather than by machine. It covers vacuuming, shampooing and conditioning the
+          interior, and washing, decontaminating, polishing and protecting the paint outside.
+          A wash cleans a car; a detail restores it.</p></details>
       <details><summary><h3>How long does car detailing take?</h3></summary>
         <p>An express wash takes under an hour. A single interior or exterior detail usually
           takes two to three hours. A full detail on a car that hasn't been cleaned in a long
-          time can take most of a day. You're told the realistic time when you're quoted,
-          not after the work starts.</p></details>
-
+          time can take most of a day. You're told the realistic time when you're quoted, not
+          after the work starts.</p></details>
       <details><summary><h3>Do you come to me?</h3></summary>
-        <p>Yes. Banana Detail is mobile and works at your home or workplace. All that's
-          needed is somewhere safe and legal to park with room to work around the car. If
-          there's no outdoor tap or power outlet available, say so when booking and the
-          equipment is brought along.</p></details>
-
+        <p>Yes. Banana Detail is mobile and works at your home or workplace. All that's needed
+          is somewhere safe and legal to park with room to work around the car. If there's no
+          outdoor tap or power outlet available, say so when booking and the equipment is
+          brought along.</p></details>
       <details><summary><h3>Does detailing remove scratches?</h3></summary>
         <p>Paint correction removes swirl marks and light scratches by machine polishing the
           clear coat, rather than filling them temporarily. Deep scratches that catch a
           fingernail have gone through the clear coat and can't be polished out. You're told
           which type yours are before paying for anything.</p></details>
-
       <details><summary><h3>How often should a car be detailed?</h3></summary>
         <p>A full detail twice a year suits most daily drivers, with an express wash and wax
           every four to six weeks in between. Cars kept outside, driven through winter salt,
           or carrying pets and children benefit from more frequent interior work.</p></details>
-
       <details><summary><h3>What happens if it rains?</h3></summary>
         <p>The appointment is rescheduled free of charge, as many times as the weather
           requires. Nobody is charged a cancellation fee because of a forecast.</p></details>
-
       <details><summary><h3>Do I need to empty the car first?</h3></summary>
         <p>Yes — glovebox, boot and door pockets included. It means every surface can be
           cleaned properly, and your belongings stay your responsibility rather than the
           detailer's.</p></details>
-
       <details><summary><h3>How do I pay?</h3></summary>
         <p>When the detail is finished and you've looked over the car. There's no deposit to
           book, and the price was agreed before any work started.</p></details>
@@ -591,11 +767,11 @@
 <section class="close">
   <div class="wrap">
     <h2>Let's get it booked</h2>
-    <p class="lead" style="margin-bottom:0">Send a photo of the car and you'll have a price
-      back shortly.</p>
+    <p class="lead" style="margin-bottom:22px">Send a photo of the car and you'll have a
+      price back shortly.</p>
     <div class="ctas">
-      <a class="btn" data-tel href="#services">Call now</a>
-      <a class="btn out" data-sms href="#services">Text a photo</a>
+      <a class="btn" data-tel href="#quote">Call now</a>
+      <a class="btn out" data-sms href="#quote">Text a photo</a>
     </div>
   </div>
 </section>
@@ -603,35 +779,122 @@
 
 <footer>
   <div class="wrap">
-    <img src="logo.png" alt="Banana Detail" width="118" height="106" loading="lazy">
-    <p><a data-tel href="#services" id="footphone">Call us</a></p>
+    <img src="logo.png" alt="Banana Detail" width="112" height="100" loading="lazy">
+    <p><a data-tel href="#quote" id="footphone">Call us</a></p>
     <p class="fine">Banana Detail — mobile car detailing.<br>
       Interior and exterior detailing, paint correction, ceramic coating.<br>
       <span id="footyear"></span></p>
   </div>
 </footer>
 
+<div class="dock">
+  <a class="btn" data-tel href="#quote">Call</a>
+  <a class="btn out" data-sms href="#quote">Text a photo</a>
+</div>
+
 <script>
-/* One place to change the number. Every Call and Text link is built from it, so there is
-   no second copy to forget. While it is empty the buttons scroll to the services instead
-   of opening a dead dialler. */
-var PHONE="";                 // e.g. "416 555 0123" -- fill this in
+/* One place to change the number. Every Call and Text link is built from it. While it is
+   empty the buttons jump to the quote builder instead of opening a dead dialler. */
+var PHONE="";                 // e.g. "416 555 0123"
 var SMS_TEXT="Hi Banana Detail, I'd like a quote for my car:";
 
 (function(){
-  document.getElementById("footyear").textContent="© "+new Date().getFullYear();
-  var digits=PHONE.replace(/[^\d]/g,"");
-  if(!digits)return;
-  var pretty=digits.length===10
-    ? "("+digits.slice(0,3)+") "+digits.slice(3,6)+"-"+digits.slice(6) : PHONE;
-  document.querySelectorAll("[data-tel]").forEach(function(a){
-    a.href="tel:"+digits;
-    if(a.id==="footphone"||a.textContent.trim()==="Call")a.textContent=pretty;
+  "use strict";
+  var $=function(s,r){return (r||document).querySelector(s);};
+  var $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s));};
+
+  $("#footyear").textContent="© "+new Date().getFullYear();
+
+  /* ---- quote builder ---------------------------------------------------- */
+  var form=$("#quote-form");
+  var money=function(n){return n.toLocaleString("en-CA");};
+
+  function quote(){
+    var size=+(($("input[name=size]:checked")||{}).value||1);
+    var cond=+(($("input[name=cond]:checked")||{}).value||1);
+    var picked=$$("input[data-svc]").filter(function(i){return i.checked;});
+    var base=picked.reduce(function(t,i){return t+(+i.value||0);},0);
+    // Round to the nearest $5 so the figure reads like a quote, not a calculation.
+    var total=Math.round(base*size*cond/5)*5;
+    return {picked:picked,base:base,size:size,cond:cond,total:total};
+  }
+
+  function render(){
+    var q=quote();
+    var lines=$("#q-lines"), total=$("#q-total"), note=$("#q-note");
+    var sms=$("[data-sms-quote]");
+
+    if(!q.picked.length){
+      lines.innerHTML='<li class="q-empty">Pick at least one service.</li>';
+      total.innerHTML='<span class="cur">$</span>0';
+      note.textContent="Nothing selected yet.";
+      sms.setAttribute("aria-disabled","true");
+      return;
+    }
+    lines.innerHTML=q.picked.map(function(i){
+      return "<li><span>"+i.dataset.svc+"</span><b>$"+money(+i.value)+"</b></li>";
+    }).join("");
+    total.innerHTML='<span class="cur">$</span>'+money(q.total);
+
+    var sizeTxt=({1:"car",1.15:"SUV",1.3:"truck or van"})[q.size]||"vehicle";
+    var condTxt=({1:"tidy",1.15:"average",1.35:"rough"})[q.cond]||"";
+    var uplift=q.total-q.base;
+    note.textContent=uplift>0
+      ? "Includes $"+money(uplift)+" for a "+condTxt+" "+sizeTxt+"."
+      : "Based on a "+condTxt+" "+sizeTxt+".";
+
+    sms.removeAttribute("aria-disabled");
+    sms.dataset.quote=q.picked.map(function(i){return i.dataset.svc;}).join(", ")
+      +" — estimate $"+money(q.total)+" ("+condTxt+" "+sizeTxt+")";
+    wirePhone();
+  }
+  form.addEventListener("change",render);
+
+  /* ---- phone links ------------------------------------------------------ */
+  function wirePhone(){
+    var digits=PHONE.replace(/[^\d]/g,"");
+    if(!digits)return;
+    var pretty=digits.length===10
+      ? "("+digits.slice(0,3)+") "+digits.slice(3,6)+"-"+digits.slice(6) : PHONE;
+    $$("[data-tel]").forEach(function(a){
+      a.href="tel:"+digits;
+      if(a.id==="footphone"||a.textContent.trim()==="Call")a.textContent=pretty;
+    });
+    $$("[data-sms]").forEach(function(a){
+      a.href="sms:"+digits+"?&body="+encodeURIComponent(SMS_TEXT);
+    });
+    var sq=$("[data-sms-quote]");
+    if(sq&&sq.dataset.quote){
+      sq.href="sms:"+digits+"?&body="+encodeURIComponent(SMS_TEXT+" "+sq.dataset.quote);
+    }
+  }
+
+  /* ---- nav highlighting ------------------------------------------------- */
+  var links=$$('.bar nav a');
+  var targets=links.map(function(a){return $(a.getAttribute("href"));}).filter(Boolean);
+  if("IntersectionObserver" in window && targets.length){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting)return;
+        links.forEach(function(a){
+          a.setAttribute("aria-current", $(a.getAttribute("href"))===e.target ? "true" : "false");
+        });
+      });
+    },{rootMargin:"-45% 0px -50% 0px"});
+    targets.forEach(function(t){io.observe(t);});
+  }
+
+  /* Only one service panel open at a time, so the grid does not become a wall of text. */
+  $$("details.svc").forEach(function(d){
+    d.addEventListener("toggle",function(){
+      if(!d.open)return;
+      $$("details.svc").forEach(function(o){ if(o!==d) o.open=false; });
+    });
   });
-  document.querySelectorAll("[data-sms]").forEach(function(a){
-    a.href="sms:"+digits+"?&body="+encodeURIComponent(SMS_TEXT);
-  });
+
+  render();
 })();
 </script>
+
 </body>
 </html>

@@ -39,3 +39,14 @@ While it is empty the buttons scroll to the services instead of opening a dead d
    indexing data to work from.
 4. **Reviews.** Review schema is omitted on purpose: marking up reviews that do not exist
    is the kind of thing that earns a manual penalty.
+
+## The quote builder
+
+The estimator multiplies the selected services by a vehicle-size factor (car 1.0, SUV
+1.15, truck or van 1.3) and a condition factor (tidy 1.0, average 1.15, rough 1.35), then
+rounds to the nearest $5 so the figure reads as a quote rather than a calculation. All of
+it lives in the page's own script.
+
+It is labelled an estimate on the page, and the real price is still confirmed once the car
+has been seen. Change the factors or the service prices in `index.html`; the CRM's prices
+and these should stay in step.
