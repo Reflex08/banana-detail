@@ -40,13 +40,18 @@ While it is empty the buttons scroll to the services instead of opening a dead d
 4. **Reviews.** Review schema is omitted on purpose: marking up reviews that do not exist
    is the kind of thing that earns a manual penalty.
 
-## The quote builder
+## Design
 
-The estimator multiplies the selected services by a vehicle-size factor (car 1.0, SUV
-1.15, truck or van 1.3) and a condition factor (tidy 1.0, average 1.15, rough 1.35), then
-rounds to the nearest $5 so the figure reads as a quote rather than a calculation. All of
-it lives in the page's own script.
+Dark espresso panels bookend the page (header, hero, closing call, footer) around cream
+document sections, so the parts that sell sit on dark and the parts that inform sit on
+paper. Instrument Serif carries the display type, Figtree everything else; corners stay at
+4-6px because large radii read like an app rather than a trade you hand your paint to.
 
-It is labelled an estimate on the page, and the real price is still confirmed once the car
-has been seen. Change the factors or the service prices in `index.html`; the CRM's prices
-and these should stay in step.
+- Every colour is a token in `:root`. Changing `--peel`/`--peel-d` restyles every button,
+  `--gold`/`--gold-l` every rule, price and accent.
+- `theme-color` matches the header, so mobile browser chrome blends into it.
+- Motion is scroll-driven CSS (`animation-timeline: view()`), and `.rv` elements start
+  nearly opaque, so nothing is stuck invisible where that is unsupported or where a visitor
+  has reduced motion turned on.
+- The only JavaScript is the phone links, the nav highlight, the header shadow and keeping
+  one service card open at a time. There is no framework and nothing to build.
