@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Banana Detail — Car Detailing</title>
+<meta name="description" content="Car detailing done properly. Interior, exterior, full details, paint correction and ceramic coating. Book by call or text.">
+<meta name="theme-color" content="#fdeec2">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta property="og:title" content="Banana Detail — Car Detailing">
+<meta property="og:description" content="Car detailing done properly. Book by call or text.">
+<meta property="og:image" content="icon-512.png">
+<meta property="og:type" content="website">
+<style>
+  /* Structure and rhythm borrowed from the premium-but-playful end of the trade: white
+     ground, heavy charcoal headlines, flat golden CTAs, numbered process steps, lots of
+     air. Colours are Banana Detail's own -- espresso, cream, butter. */
+  :root{
+    --ink:#2a1c12; --body:#6b584a; --muted:#8a7667; --faint:#a89481;
+    --cream:#fbf7ec; --wash:#f6efdf; --line:#eadfc9; --white:#fffdf8;
+    --butter:#f8dd91; --butter-d:#edc85c; --cocoa:#4a2c17;
+  }
+  *{box-sizing:border-box;min-width:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--white);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.55}
+  img{max-width:100%;height:auto;display:block}
+  a{color:inherit}
+  .wrap{width:100%;max-width:1060px;margin:0 auto;padding:0 20px}
+
+  /* ---------- header ---------- */
+  header{position:sticky;top:0;z-index:40;background:rgba(255,253,248,.92);
+    backdrop-filter:saturate(150%) blur(8px);border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;gap:14px;padding:10px 0}
+  .bar img{width:116px}
+  .bar nav{margin-left:auto;display:none;gap:26px;font-weight:700;font-size:14.5px}
+  .bar nav a{text-decoration:none;color:var(--body)}
+  .bar nav a:hover{color:var(--cocoa)}
+  .bar .hcta{margin-left:auto}
+  .bar nav + .hcta{margin-left:0}
+  @media(min-width:860px){ .bar nav{display:flex} }
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    border:0;border-radius:11px;padding:14px 22px;font-size:15.5px;font-weight:800;
+    font-family:inherit;text-decoration:none;cursor:pointer;letter-spacing:-.2px;
+    background:var(--butter);color:var(--cocoa);transition:background .13s,transform .08s}
+  .btn:hover{background:var(--butter-d)}
+  .btn:active{transform:translateY(1px)}
+  .btn.sm{padding:10px 16px;font-size:14px;border-radius:9px}
+  .btn.out{background:transparent;color:var(--cocoa);box-shadow:inset 0 0 0 2px var(--line)}
+  .btn.out:hover{background:var(--wash)}
+
+  /* ---------- hero ---------- */
+  .hero{background:linear-gradient(#fdeec2 0, #fbf3dd 58%, var(--white) 100%);
+    padding:46px 0 56px;text-align:center}
+  .hero img.mark{width:230px;margin:0 auto 22px}
+  h1{font-size:clamp(34px,8.2vw,62px);line-height:1.04;letter-spacing:-1.6px;
+    font-weight:800;margin:0 0 16px;color:var(--cocoa)}
+  .hero p.lede{font-size:clamp(16px,2.4vw,19px);color:var(--body);max-width:36ch;
+    margin:0 auto 26px}
+  .hero .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .trust{display:flex;gap:10px 28px;justify-content:center;flex-wrap:wrap;
+    margin-top:26px;color:var(--muted);font-size:13.5px;font-weight:700}
+  .trust span::before{content:"\2713  ";color:#2f9960;font-weight:800}
+
+  /* ---------- sections ---------- */
+  section{padding:64px 0}
+  section.alt{background:var(--cream);border-block:1px solid var(--line)}
+  .eyebrow{font-size:11.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--faint);margin:0 0 10px;text-align:center}
+  h2{font-size:clamp(26px,4.6vw,40px);line-height:1.12;letter-spacing:-1px;font-weight:800;
+    margin:0 0 14px;text-align:center;color:var(--cocoa)}
+  .sub{text-align:center;color:var(--body);max-width:52ch;margin:0 auto 38px;font-size:16px}
+
+  /* ---------- services ---------- */
+  .grid{display:grid;gap:16px;grid-template-columns:1fr}
+  @media(min-width:620px){ .grid{grid-template-columns:repeat(2,1fr)} }
+  @media(min-width:940px){ .grid{grid-template-columns:repeat(3,1fr)} }
+  .svc{background:var(--white);border:1px solid var(--line);border-radius:17px;padding:22px;
+    display:flex;flex-direction:column;gap:7px}
+  section.alt .svc{background:var(--white)}
+  .svc h3{margin:0;font-size:18.5px;font-weight:800;letter-spacing:-.3px}
+  .svc p{margin:0;color:var(--body);font-size:14.5px;flex:1}
+  .svc .price{margin-top:8px;font-size:15px;font-weight:800;color:var(--cocoa)}
+  .svc .price small{color:var(--faint);font-weight:700;font-size:12px}
+  .note{text-align:center;color:var(--muted);font-size:13.5px;margin-top:26px;max-width:50ch;
+    margin-inline:auto}
+
+  /* ---------- steps ---------- */
+  .steps{display:grid;gap:26px;grid-template-columns:1fr;counter-reset:s}
+  @media(min-width:760px){ .steps{grid-template-columns:repeat(4,1fr)} }
+  .step{text-align:left}
+  .step .n{font-size:13px;font-weight:800;color:var(--cocoa);background:var(--butter);
+    width:38px;height:38px;border-radius:50%;display:flex;align-items:center;
+    justify-content:center;margin-bottom:12px}
+  .step h3{margin:0 0 5px;font-size:17px;font-weight:800}
+  .step p{margin:0;color:var(--body);font-size:14.5px}
+
+  /* ---------- included ---------- */
+  .cols{display:grid;gap:28px;grid-template-columns:1fr}
+  @media(min-width:800px){ .cols{grid-template-columns:1fr 1fr} }
+  .ilist{list-style:none;margin:0;padding:0}
+  .ilist li{padding:11px 0 11px 30px;border-bottom:1px solid var(--line);position:relative;
+    font-size:15px;color:var(--body)}
+  .ilist li:last-child{border-bottom:0}
+  .ilist li::before{content:"\2713";position:absolute;left:0;top:11px;color:#2f9960;font-weight:800}
+  .ilist li b{color:var(--ink)}
+
+  /* ---------- faq ---------- */
+  .faq{max-width:760px;margin:0 auto}
+  details{border-bottom:1px solid var(--line)}
+  summary{list-style:none;cursor:pointer;padding:17px 34px 17px 0;font-weight:800;
+    font-size:16px;position:relative}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";position:absolute;right:6px;top:15px;font-size:22px;
+    color:var(--faint);font-weight:700}
+  details[open] summary::after{content:"\2212"}
+  details p{margin:0 0 18px;color:var(--body);font-size:15px;padding-right:20px}
+
+  /* ---------- closing cta ---------- */
+  .close{background:linear-gradient(180deg,#fbf3dd,#fdeec2);text-align:center}
+  .close .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+
+  footer{background:var(--cocoa);color:#e8dccd;padding:40px 0;text-align:center}
+  footer img{width:120px;margin:0 auto 16px;opacity:.95}
+  footer a{color:var(--butter);font-weight:700;text-decoration:none}
+  footer .fine{color:#b7a391;font-size:12.5px;margin-top:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <img src="logo.png" alt="Banana Detail">
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#included">What's included</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn sm hcta" data-tel href="#">Call</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <img class="mark" src="logo.png" alt="Banana Detail">
+    <h1>Car due a proper clean?</h1>
+    <p class="lede">Interior, exterior and full details — done carefully, by hand,
+      and finished when it's actually right.</p>
+    <div class="ctas">
+      <a class="btn" data-tel href="#">Call for a quote</a>
+      <a class="btn out" data-sms href="#">Text a photo</a>
+    </div>
+    <div class="trust">
+      <span>Fully insured</span>
+      <span>We come to you</span>
+      <span>Price agreed before we start</span>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <p class="eyebrow">Services</p>
+    <h2>Pick what the car needs</h2>
+    <p class="sub">Not sure? Send a photo and we'll tell you honestly what's worth doing —
+      and what isn't.</p>
+    <div class="grid">
+      <div class="svc"><h3>Express Wash &amp; Wax</h3>
+        <p>Hand wash, dry and a protective wax. The regular top-up between bigger details.</p>
+        <div class="price">from $60</div></div>
+      <div class="svc"><h3>Interior Detail</h3>
+        <p>Vacuum throughout, steam and shampoo, plastics and leather cleaned and dressed,
+          glass streak-free.</p>
+        <div class="price">from $150</div></div>
+      <div class="svc"><h3>Exterior Detail</h3>
+        <p>Decontamination wash, wheels and arches, tyres dressed, trim restored, paint
+          sealed.</p>
+        <div class="price">from $140</div></div>
+      <div class="svc"><h3>Full Detail — In &amp; Out</h3>
+        <p>Everything above in one visit. The one to book if the car hasn't been done in a
+          while.</p>
+        <div class="price">from $250</div></div>
+      <div class="svc"><h3>Paint Correction</h3>
+        <p>Machine polish that removes swirls and light scratches instead of hiding them.</p>
+        <div class="price">from $400</div></div>
+      <div class="svc"><h3>Ceramic Coating</h3>
+        <p>Prepped, corrected and coated for years of protection and a much easier wash.</p>
+        <div class="price">from $650</div></div>
+      <div class="svc"><h3>Engine Bay Clean</h3>
+        <p>Degreased, rinsed carefully and dressed. Makes a real difference at resale.</p>
+        <div class="price">from $70</div></div>
+      <div class="svc"><h3>Headlight Restoration</h3>
+        <p>Sanded, polished and sealed — back to clear, and safer at night.</p>
+        <div class="price">from $80</div></div>
+      <div class="svc"><h3>Pet Hair &amp; Odour</h3>
+        <p>Hair lifted properly and smells treated at the source, not covered up.</p>
+        <div class="price">from $60</div></div>
+    </div>
+    <p class="note">Starting prices. The final figure depends on the size of the vehicle and
+      the state it's in — and it's agreed with you before any work begins.</p>
+  </div>
+</section>
+
+<section class="alt" id="how">
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2>Four steps, no fuss</h2>
+    <p class="sub">No deposits, no account to make, no waiting on a quote for three days.</p>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h3>Get in touch</h3>
+        <p>Call or text a couple of photos of the car, inside and out.</p></div>
+      <div class="step"><div class="n">02</div><h3>Get a price</h3>
+        <p>You get a straight figure and a time, usually the same day.</p></div>
+      <div class="step"><div class="n">03</div><h3>Confirm it</h3>
+        <p>A link lands on your phone with the details and terms. One tap and it's booked.</p></div>
+      <div class="step"><div class="n">04</div><h3>We detail it</h3>
+        <p>We come to you. Pay when it's finished and you've looked it over.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="included">
+  <div class="wrap">
+    <p class="eyebrow">What's included</p>
+    <h2>What a full detail actually means</h2>
+    <p class="sub">So you know exactly what you're paying for.</p>
+    <div class="cols">
+      <div>
+        <h3 style="font-size:17px;margin:0 0 6px">Inside</h3>
+        <ul class="ilist">
+          <li><b>Full vacuum</b> — seats, rails, boot, under the mats</li>
+          <li><b>Steam and shampoo</b> on carpets and upholstery</li>
+          <li><b>Leather</b> cleaned and conditioned, not greased</li>
+          <li><b>Plastics and vents</b> detailed, dressed matte</li>
+          <li><b>Glass</b> inside and out, streak-free</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size:17px;margin:0 0 6px">Outside</h3>
+        <ul class="ilist">
+          <li><b>Two-bucket hand wash</b> — no brushes, no swirls</li>
+          <li><b>Wheels, barrels and arches</b> cleaned properly</li>
+          <li><b>Decontamination</b> for tar and embedded fallout</li>
+          <li><b>Trim and tyres</b> restored and dressed</li>
+          <li><b>Sealant or wax</b> so it stays clean longer</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="faq">
+  <div class="wrap">
+    <p class="eyebrow">FAQ</p>
+    <h2>Questions worth asking</h2>
+    <div class="faq">
+      <details open><summary>Do you come to me?</summary>
+        <p>Yes — we work at your home or your workplace. We just need somewhere safe and
+          legal to park with room to work around the car. If there's no outdoor tap or
+          outlet, say so when you book and we'll bring what we need.</p></details>
+      <details><summary>How long does it take?</summary>
+        <p>An express wash is under an hour. An interior or exterior detail is usually two
+          to three. A full detail on a car that hasn't been done in a while can be most of
+          a day — we'd rather tell you that up front than rush it.</p></details>
+      <details><summary>Will it fix scratches?</summary>
+        <p>Paint correction removes swirls and light scratches properly. Deep ones that
+          catch a fingernail have gone through the clear coat and can't be polished out —
+          we'll tell you which yours are before you pay for anything.</p></details>
+      <details><summary>What if it rains?</summary>
+        <p>We'll reschedule, free, as many times as the weather needs. Nobody gets charged
+          for a forecast.</p></details>
+      <details><summary>How do I pay?</summary>
+        <p>When the detail is finished and you've looked over the car. No deposit to book.</p></details>
+      <details><summary>Do I need to empty the car?</summary>
+        <p>Please do — glovebox, boot and door pockets included. It means we can clean
+          everywhere, and it keeps your things your responsibility rather than ours.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <h2>Let's get it booked</h2>
+    <p class="sub" style="margin-bottom:0">Send a photo of the car and you'll have a price
+      back shortly.</p>
+    <div class="ctas">
+      <a class="btn" data-tel href="#">Call now</a>
+      <a class="btn out" data-sms href="#">Text a photo</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="logo.png" alt="Banana Detail">
+    <div><a data-tel href="#" id="footphone">Call us</a></div>
+    <div class="fine">Banana Detail — car detailing. Fully insured.
+      <span id="footyear"></span></div>
+  </div>
+</footer>
+
+<script>
+/* One place to change the number. Every Call and Text link on the page is built from it,
+   so there is no second copy to forget. */
+var PHONE="";                 // e.g. "416 555 0123" -- fill this in
+var SMS_TEXT="Hi Banana Detail, I'd like a quote for my car:";
+
+(function(){
+  var digits=PHONE.replace(/[^\d]/g,"");
+  document.getElementById("footyear").textContent="© "+new Date().getFullYear();
+
+  if(!digits){
+    /* No number set yet: point everything at the top of the page rather than shipping
+       dead tel: links that look broken when tapped. */
+    document.querySelectorAll("[data-tel],[data-sms]").forEach(function(a){ a.href="#services"; });
+    return;
+  }
+  var pretty=digits.length===10
+    ? "("+digits.slice(0,3)+") "+digits.slice(3,6)+"-"+digits.slice(6)
+    : PHONE;
+  document.querySelectorAll("[data-tel]").forEach(function(a){
+    a.href="tel:"+digits;
+    if(a.id==="footphone")a.textContent=pretty;
+    else if(a.textContent.trim()==="Call")a.textContent=pretty;
+  });
+  document.querySelectorAll("[data-sms]").forEach(function(a){
+    a.href="sms:"+digits+"?&body="+encodeURIComponent(SMS_TEXT);
+  });
+})();
+</script>
+</body>
+</html>
