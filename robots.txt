@@ -1,0 +1,16 @@
+# Banana Detail
+User-agent: *
+Allow: /
+
+# AI crawlers are deliberately allowed. Whether this affects citation is unproven,
+# but blocking them definitely prevents it.
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://reflex08.github.io/banana-detail/sitemap.xml

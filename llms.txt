@@ -1,0 +1,27 @@
+# Banana Detail
+
+> Mobile car detailing. Interior and exterior details, paint correction and ceramic
+> coating, carried out by hand at the customer's home or workplace.
+
+Services and starting prices (CAD):
+- Express Wash & Wax — $60
+- Interior Detail — $150
+- Exterior Detail — $140
+- Full Detail, inside and out — $250
+- Paint Correction — $400
+- Ceramic Coating — $650
+- Engine Bay Cleaning — $70
+- Headlight Restoration — $80
+- Pet Hair & Odour Removal — $60
+
+Final prices depend on vehicle size and condition and are agreed before work begins.
+
+Booking: the customer sends photos, receives a price and a time, then confirms through a
+link that carries the booking details and the service terms. No deposit. Payment is due
+on completion.
+
+## Pages
+- [Home](https://reflex08.github.io/banana-detail/): services, pricing, process and FAQ.
+
+Note: llms.txt is a community proposal, not a search standard, and no engine is known to
+require it. It costs nothing to publish and is kept consistent with the page itself.
