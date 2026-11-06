@@ -1,7 +1,7 @@
 # Banana Detail
 
-> Mobile car detailing. Interior and exterior details, paint correction and ceramic
-> coating, carried out by hand at the customer's home or workplace.
+> Mobile car detailing. Interior and exterior details, carried out by hand at the
+> customer's home or workplace.
 
 Based in Bradford, Ontario. Serves Bradford, Innisfil, East Gwillimbury, Newmarket,
 King Township and New Tecumseth.
@@ -12,8 +12,6 @@ Services and starting prices (CAD):
 - Interior Detail — $150
 - Exterior Detail — $140
 - Full Detail, inside and out — $150
-- Paint Correction — $400
-- Ceramic Coating — $650
 - Engine Bay Cleaning — $70
 - Headlight Restoration — $80
 - Pet Hair & Odour Removal — $60
