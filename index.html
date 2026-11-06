@@ -12,7 +12,7 @@
 <link rel="canonical" href="https://bananadetail.ca/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 
-<meta name="theme-color" content="#16100a">
+<meta name="theme-color" content="#1034A6">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="preload" as="image" href="logo.png" fetchpriority="high">
@@ -113,7 +113,7 @@
             "price": "199",
             "itemOffered": {
               "@type": "Service",
-              "name": "Full Detail (In & Out)"
+              "name": "Absolute Bananas — Full Detail (In & Out)"
             }
           },
           {
@@ -165,7 +165,7 @@
           "name": "What is car detailing?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Car detailing is a deep clean and restoration of a vehicle inside and out, done by hand rather than by machine. It covers vacuuming, shampooing and conditioning the interior, and washing, decontaminating, polishing and protecting the paint outside. A wash cleans a car; a detail restores it."
+            "text": "Car detailing is a deep clean inside and out, done by hand. Inside, it's vacuuming and wiping down every surface. Outside, it's a pressure washer wash, wheels and tires included. A wash cleans a car; a detail covers the whole car properly."
           }
         },
         {
@@ -173,7 +173,7 @@
           "name": "How much does car detailing cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Banana Detail starts at $60 for an express wash and wax, $140 for an exterior detail, $150 for an interior detail, and $199 for a full detail inside and out. The final price depends on the size and condition of the vehicle and is agreed before any work starts."
+            "text": "Banana Detail starts at $60 for an express wash and wax, $140 for an exterior detail, $150 for an interior detail, and $199 for Absolute Bananas, the full detail inside and out. Prices include HST. The final price depends on the size and condition of the vehicle and is agreed before any work starts."
           }
         },
         {
@@ -246,13 +246,15 @@
      Instrument Serif carries display type, Figtree everything else. Corners stay tight
      (4-6px) on purpose: big radii read "app", not "the person you trust with your paint". */
   :root{
-    --espresso:#16100a; --espresso-2:#1f1510; --espresso-line:#34241a;
-    --ink:#1c1206; --body:#5e4d3c; --muted:#8b7865; --faint:#a4917f;
-    --paper:#fffdf9; --cream:#f8f2e6; --wash:#f1e8d6;
-    --line:#e8ddc9; --line-2:#d7c6a8;
-    --gold:#b0801f; --gold-l:#d8a93a; --peel:#f8dc7a; --peel-d:#eec33c;
-    --cocoa:#3c2413; --leaf:#2f7d4f;
-    --onDark:#f6eddd; --onDark-2:#c3af96;
+    --espresso:#0A2472; --espresso-2:#1034A6; --espresso-line:#7A9CC6;
+    --ink:#16100A; --body:#414c5c; --muted:#71809a; --faint:#9db1cc;
+    --paper:#FDF8EE; --cream:#E9EFF7; --wash:#E9EFF7;
+    --line:#d7e1f0; --line-2:#7A9CC6;
+    --gold:#1034A6; --gold-l:#7A9CC6; --peel:#FFC800; --peel-d:#FFC800;
+    --cocoa:#16100A; --leaf:#1034A6;
+    --blue:#1034A6; --navy:#0A2472; --stone:#7A9CC6; --tint:#E9EFF7;
+    --yellow:#FFC800; --red:#FF2400;
+    --onDark:#FDF8EE; --onDark-2:#c9d6f2;
     --display:"Instrument Serif", Georgia, "Times New Roman", serif;
     --text:"Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --r:6px;
@@ -263,7 +265,7 @@
   body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--text);
     font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
   img{max-width:100%;height:auto;display:block}
-  a{color:inherit}
+  a{color:var(--blue)}
   :focus-visible{outline:2px solid var(--gold-l);outline-offset:3px;border-radius:3px}
   .wrap{width:100%;max-width:1080px;margin:0 auto;padding-inline:20px}
   section{scroll-margin-top:96px}
@@ -274,7 +276,7 @@
   .skip:focus{left:0}
 
   h1,h2{font-family:var(--display);font-weight:400;letter-spacing:-.008em;text-wrap:balance;
-    color:var(--ink)}
+    color:var(--blue)}
   h1{font-size:clamp(40px,8.2vw,74px);line-height:1.0;margin:0 0 18px}
   h2{font-size:clamp(28px,4.6vw,45px);line-height:1.08;margin:0 0 14px}
   h3{font-family:var(--text);font-weight:800;font-size:17.5px;line-height:1.3;margin:0;
@@ -282,11 +284,11 @@
   em{font-style:italic}
 
   /* ---------- header ---------- */
-  header{position:sticky;top:0;z-index:50;background:rgba(22,16,10,.88);
+  header{position:sticky;top:0;z-index:50;background:rgba(10,36,114,.92);
     backdrop-filter:saturate(140%) blur(12px);
     border-bottom:1px solid var(--espresso-line);transition:box-shadow .2s}
   header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;
-    background:linear-gradient(90deg,transparent,rgba(216,169,58,.5),transparent)}
+    background:linear-gradient(90deg,transparent,rgba(255,200,0,.55),transparent)}
   header.pinned{box-shadow:0 10px 30px -14px rgba(0,0,0,.6)}
   .bar{display:flex;align-items:center;gap:18px;padding-block:10px}
   .bar>img{width:92px;flex:none}
@@ -295,7 +297,7 @@
     padding:8px 12px;border-radius:4px;white-space:nowrap;
     transition:color .18s,background .18s}
   .bar nav a:hover{color:var(--onDark);background:rgba(246,237,221,.07)}
-  .bar nav a[aria-current="true"]{color:var(--peel);background:rgba(216,169,58,.11)}
+  .bar nav a[aria-current="true"]{color:var(--peel);background:rgba(255,200,0,.14)}
   .bar .hcta{margin-left:0;flex:none}
   @media(max-width:899px){
     .bar{flex-wrap:wrap;gap:10px}
@@ -309,43 +311,44 @@
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;
     border-radius:4px;padding:15px 26px;font-family:var(--text);font-size:15.5px;
     font-weight:800;letter-spacing:.01em;text-decoration:none;cursor:pointer;
-    color:#2b1a09;background:linear-gradient(180deg,var(--peel),var(--peel-d));
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.55), 0 10px 24px -10px rgba(176,128,31,.7);
+    color:#fff;background:#FF2400;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.25), 0 10px 24px -10px rgba(255,36,0,.55);
     transition:filter .18s,transform .08s,box-shadow .18s}
-  .btn:hover{filter:brightness(1.05);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),
-    0 14px 30px -10px rgba(176,128,31,.8)}
+  .btn:hover{filter:brightness(1.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),
+    0 14px 30px -10px rgba(255,36,0,.65)}
   .btn:active{transform:translateY(1px)}
   .btn.sm{padding:9px 16px;font-size:13.5px}
-  .btn.out{background:none;color:var(--cocoa);box-shadow:inset 0 0 0 1px var(--line-2)}
-  .btn.out:hover{background:var(--wash);filter:none;box-shadow:inset 0 0 0 1px var(--line-2)}
-  .hero .btn.out,.close .btn.out{color:var(--onDark);
-    box-shadow:inset 0 0 0 1px rgba(246,237,221,.3)}
-  .hero .btn.out:hover,.close .btn.out:hover{background:rgba(246,237,221,.08);
-    box-shadow:inset 0 0 0 1px rgba(246,237,221,.5)}
+  .btn.out{background:#FF2400;color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.25), 0 10px 24px -10px rgba(255,36,0,.55)}
+  .btn.out:hover{background:#FF2400;filter:brightness(1.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.25), 0 14px 30px -10px rgba(255,36,0,.65)}
+  .hero .btn.out,.close .btn.out{color:#fff;background:#FF2400;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.25), 0 10px 24px -10px rgba(255,36,0,.55)}
+  .hero .btn.out:hover,.close .btn.out:hover{background:#FF2400;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.25), 0 14px 30px -10px rgba(255,36,0,.65)}
 
   /* ---------- dark panels ---------- */
   .hero,.close{position:relative;overflow:hidden;color:var(--onDark);text-align:center;
     background:
-      radial-gradient(90% 70% at 50% 0%, #3d2714 0%, transparent 62%),
-      linear-gradient(180deg,#1b130b,var(--espresso) 58%,#120c06)}
+      radial-gradient(90% 70% at 50% 0%, rgba(255,200,0,.16) 0%, transparent 62%),
+      linear-gradient(180deg,#1034A6 0%,#0A2472 100%)}
   .hero::after,.close::after{content:"";position:absolute;inset:0;pointer-events:none;
     background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);
     background-size:4px 4px}
   .hero>*,.close>*{position:relative;z-index:1}
-  .hero h1,.close h2{color:#fdf8ee}
-  .hero h1 em{color:var(--peel)}
+  .hero h1,.close h2{color:#FDF8EE}
+  .hero h1 em{color:#FDF8EE}
+  .hero h1 .yw{color:#FFC800}
   .hero{padding-block:52px 66px;border-bottom:1px solid var(--espresso-line)}
   .close{padding-block:78px;border-top:1px solid var(--espresso-line)}
   .close .lead{color:var(--onDark-2)}
 
   .kicker{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--gold-l);margin:0 0 16px}
+    color:#FFC800;margin:0 0 16px}
   .markwrap{position:relative;width:196px;margin:0 auto 22px}
   .markwrap::before{content:"";position:absolute;inset:-16%;border-radius:50%;
-    background:radial-gradient(circle,rgba(216,169,58,.3),transparent 66%);filter:blur(8px)}
+    background:radial-gradient(circle,rgba(255,200,0,.35),transparent 66%);filter:blur(8px)}
   .mark{position:relative;width:196px;animation:rise .8s cubic-bezier(.2,.8,.3,1) both}
   .rule{width:58px;height:1px;margin:0 auto 24px;
-    background:linear-gradient(90deg,transparent,var(--gold-l),transparent)}
+    background:linear-gradient(90deg,transparent,#FFC800,transparent)}
   .answer{font-size:clamp(16.5px,2.1vw,18.5px);color:var(--onDark-2);max-width:56ch;
     margin:0 auto 28px}
   .answer b{color:#f3e7d3;font-weight:600}
@@ -353,7 +356,7 @@
   .trust{display:flex;gap:10px 28px;justify-content:center;flex-wrap:wrap;margin:28px 0 0;
     color:var(--onDark-2);font-size:12.5px;font-weight:700;letter-spacing:.04em;
     text-transform:uppercase}
-  .trust span::before{content:"\2713\00a0\00a0";color:var(--gold-l);font-weight:800}
+  .trust span::before{content:"\2713\00a0\00a0";color:#FFC800;font-weight:800}
   @keyframes rise{from{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:none}}
 
   /* ---------- light sections ---------- */
@@ -395,6 +398,9 @@
     border-top:1px solid var(--line)}
   .svc .more li{font-size:13.5px;color:var(--body);padding:3px 0 3px 20px;position:relative}
   .svc .more li::before{content:"\2713";position:absolute;left:0;color:var(--leaf);font-weight:800}
+  .badge{display:inline-block;background:#FFC800;color:#16100A;font-size:10.5px;
+    font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;
+    border-radius:999px;margin-bottom:7px}
 
   /* ---------- table ---------- */
   .tablewrap{overflow-x:auto;max-width:860px;margin-inline:auto;
@@ -469,20 +475,20 @@
     max-width:800px;margin:0 auto}
 
   /* ---------- footer ---------- */
-  footer{background:#100b06;color:var(--onDark-2);padding-block:46px;text-align:center;
+  footer{background:#0A2472;color:var(--onDark-2);padding-block:46px;text-align:center;
     border-top:1px solid var(--espresso-line)}
   footer img{width:88px;margin:0 auto 16px;opacity:.95}
-  footer .fnum{font-family:var(--display);font-size:25px;color:var(--peel);
+  footer .fnum{font-family:var(--display);font-size:25px;color:#FFC800;
     text-decoration:none;letter-spacing:.01em}
-  footer .fnum:hover{color:#fdf8ee}
+  footer .fnum:hover{color:#FDF8EE}
   footer .frule{width:46px;height:1px;margin:20px auto;
     background:linear-gradient(90deg,transparent,var(--espresso-line),transparent)}
-  footer .fine{color:#8b7762;font-size:12.5px;line-height:1.75;margin:0}
+  footer .fine{color:#a9bce0;font-size:12.5px;line-height:1.75;margin:0}
 
   /* ---------- sticky phone bar ---------- */
   .dock{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:10px;
     padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));
-    background:rgba(255,253,249,.96);backdrop-filter:blur(12px);
+    background:rgba(253,248,238,.96);backdrop-filter:blur(12px);
     border-top:1px solid var(--line);box-shadow:0 -10px 30px -18px rgba(28,18,6,.5)}
   .dock .btn{flex:1;padding-inline:12px}
   @media(max-width:700px){ .dock{display:flex} body{padding-bottom:78px} }
@@ -518,11 +524,10 @@
            alt="Banana Detail mascot holding a wash mitt and spray gun">
     </div>
     <p class="kicker">Mobile &middot; By appointment</p>
-    <h1>Mobile Car Detailing in Bradford — <em>We Come to You</em></h1>
+    <h1>Mobile Car Detailing in Bradford — <em>We Come to <span class="yw">You</span></em></h1>
     <div class="rule"></div>
     <p class="answer"><b>We come to you — at home or at work in Bradford and the
-      surrounding towns.</b> Interior shampooing and exterior decontamination, done by
-      hand, from $60.</p>
+      surrounding towns.</b> Interior and exterior detailing, done by hand, from $60.</p>
     <div class="ctas">
       <a class="btn" data-tel href="tel:+16478292242">Call for a quote</a>
       <a class="btn out" data-sms href="sms:+16478292242?&amp;body=Hi%20Banana%20Detail%2C%20I'd%20like%20a%20quote%20for%20my%20car%3A">Text photos for a price</a>
@@ -540,39 +545,31 @@
       agreed with you before any work begins.</p>
     <div class="grid rv">
       <details class="svc"><summary><span class="sname"><h3>Express Wash &amp; Wax</h3>
-        <p>Hand wash, dry and a protective wax.</p></span><span class="price">from $60</span>
+        <p>A proper wash, dry and wax.</p></span><span class="price">from $60</span>
         <span class="chev">›</span></summary>
-        <ul class="more"><li>Two-bucket hand wash, no brushes</li><li>Wheels and tires cleaned</li>
-        <li>Dried with plush towels, no swirls</li><li>Spray wax for a few weeks of protection</li></ul></details>
+        <ul class="more"><li>Pressure washer wash</li><li>Brushes for small areas and details</li>
+        <li>Wheels and tires cleaned, tires dressed with tire shine</li><li>Dried</li>
+        <li>Spray wax for a few weeks of protection</li></ul></details>
 
       <details class="svc"><summary><span class="sname"><h3>Interior Detail</h3>
-        <p>Vacuum, steam, shampoo and dress.</p></span><span class="price">from $150</span>
+        <p>Vacuum, wipe down and dress.</p></span><span class="price">from $150</span>
         <span class="chev">›</span></summary>
-        <ul class="more"><li>Full vacuum including boot and under mats</li><li>Carpets and seats shampooed</li>
-        <li>Leather cleaned and conditioned</li><li>Plastics and vents dressed matte</li>
-        <li>Glass streak-free inside</li><li>Light pet hair included</li></ul></details>
+        <ul class="more"><li>Full vacuum including boot and under mats</li><li>Every surface wiped down</li>
+        <li>Plastics dressed</li><li>Glass cleaned inside</li>
+        <li>Light pet hair included</li></ul></details>
 
       <details class="svc"><summary><span class="sname"><h3>Exterior Detail</h3>
-        <p>Decontaminate, restore and seal.</p></span><span class="price">from $140</span>
+        <p>Pressure wash, brushes in the details.</p></span><span class="price">from $140</span>
         <span class="chev">›</span></summary>
-        <ul class="more"><li>Wheels, barrels and arches</li><li>Tar and fallout removed</li>
-        <li>Trim restored and dressed</li><li>Paint sealed so it stays clean longer</li></ul></details>
+        <ul class="more"><li>Pressure washer wash</li><li>Brushes for small areas and details</li>
+        <li>Wheels and arches washed</li>
+        <li>Tires and trim dressed with tire shine</li><li>Dried</li></ul></details>
 
-      <details class="svc"><summary><span class="sname"><h3>Full Detail — In &amp; Out</h3>
-        <p>Everything above in one visit.</p></span><span class="price">from $199</span>
+      <details class="svc"><summary><span class="sname"><span class="badge">Absolute Bananas</span><h3>Absolute Bananas — Full Detail (In &amp; Out)</h3>
+        <p>The full works — everything above in one visit.</p></span><span class="price">from $199</span>
         <span class="chev">›</span></summary>
-        <ul class="more"><li>The complete interior detail</li><li>The complete exterior detail</li>
-        <li>Engine bay wiped down</li><li>Light pet hair included</li>
-        <li>Full vacuum — seats, rails, boot, under the mats</li>
-        <li>Steam and shampoo on carpets and upholstery</li>
-        <li>Leather cleaned and conditioned, not greased</li>
-        <li>Plastics and vents detailed, dressed matte</li>
-        <li>Glass inside and out, streak-free</li>
-        <li>Two-bucket hand wash — no brushes, no swirls</li>
-        <li>Wheels, barrels and arches cleaned properly</li>
-        <li>Decontamination for tar and embedded fallout</li>
-        <li>Trim and tires restored and dressed</li>
-        <li>Sealant or wax so it stays clean longer</li>
+        <ul class="more"><li>The complete interior detail + the complete exterior detail</li>
+        <li>Engine bay wiped down</li>
         <li>The one to book before selling</li></ul></details>
 
       <details class="svc"><summary><span class="sname"><h3>Engine Bay Cleaning</h3>
@@ -591,16 +588,15 @@
       <details class="svc"><summary><span class="sname"><h3>Pet Hair &amp; Odour</h3>
         <p>Lifted properly, not covered up.</p></span><span class="price">from $60</span>
         <span class="chev">›</span></summary>
-        <ul class="more"><li>Light pet hair is included in Interior Detail and Full Detail</li>
-        <li>This $60 service covers heavy pet hair and odour treatment</li>
-        <li>Hair lifted with rubber and brush, then vacuumed</li>
+        <ul class="more"><li>Hair lifted with rubber and brush, then vacuumed</li>
         <li>Fabric treated at the source of the smell</li><li>Vents and cabin filter checked</li></ul></details>
     </div>
     <p class="note">Starting prices in Canadian dollars, for a sedan or coupe.
+      Prices include HST.
       <b>Size adjustments:</b> SUV +$30; large SUV, 3-row, truck or van +$50 — applies to
-      Express Wash &amp; Wax, Exterior Detail, Interior Detail and Full Detail.
+      Express Wash &amp; Wax, Exterior Detail, Interior Detail and Absolute Bananas — Full Detail (In &amp; Out).
       Engine Bay Cleaning is $50 when added to any detail, $70 on its own. Light pet hair
-      is included in Interior Detail and Full Detail; heavy pet hair and odour treatment
+      is included in Interior Detail and Absolute Bananas; heavy pet hair and odour treatment
       is the $60 service above. Larger vehicles and heavily soiled interiors take longer,
       and anything beyond the booked service is quoted before it is started.</p>
   </div>
@@ -637,7 +633,7 @@
           <tr><th scope="row">Express Wash &amp; Wax</th><td>A car already in good shape, kept that way</td><td>Under 1 hour</td><td>$60</td></tr>
           <tr><th scope="row">Interior Detail</th><td>Kids, pets, spills, smells, dusty plastics</td><td>2–3 hours</td><td>$150</td></tr>
           <tr><th scope="row">Exterior Detail</th><td>Road salt, brake dust, faded trim, rough paint</td><td>2–3 hours</td><td>$140</td></tr>
-          <tr><th scope="row">Full Detail</th><td>A car that hasn't been done in a year, or a sale</td><td>Half to full day</td><td>$199</td></tr>
+          <tr><th scope="row">Absolute Bananas — Full Detail (In &amp; Out)</th><td>A car that hasn't been done in a year, or a sale</td><td>Half to full day</td><td>$199</td></tr>
         </tbody>
       </table>
     </div>
@@ -672,15 +668,15 @@
     <h2>Car detailing questions, answered</h2>
     <div class="faq">
       <details open><summary><h3>What is car detailing?</h3></summary>
-        <p>Car detailing is a deep clean and restoration of a vehicle inside and out, done by
-          hand rather than by machine. It covers vacuuming, shampooing and conditioning the
-          interior, and washing, decontaminating, polishing and protecting the paint outside.
-          A wash cleans a car; a detail restores it.</p></details>
+        <p>Car detailing is a deep clean inside and out, done by hand. Inside, it's
+          vacuuming and wiping down every surface. Outside, it's a pressure washer wash,
+          wheels and tires included. A wash cleans a car; a detail covers the whole car
+          properly.</p></details>
       <details><summary><h3>How much does car detailing cost?</h3></summary>
         <p>Banana Detail starts at $60 for an express wash and wax, $140 for an exterior
-          detail, $150 for an interior detail, and $199 for a full detail inside and out.
-          The final price depends on the size and condition of the vehicle and is agreed
-          before any work starts.</p></details>
+          detail, $150 for an interior detail, and $199 for Absolute Bananas, the full
+          detail inside and out. Prices include HST. The final price depends on the size
+          and condition of the vehicle and is agreed before any work starts.</p></details>
       <details><summary><h3>How long does car detailing take?</h3></summary>
         <p>An express wash takes under an hour. A single interior or exterior detail usually
           takes two to three hours. A full detail on a car that hasn't been cleaned in a long
