@@ -3,6 +3,10 @@
 > Mobile car detailing. Interior and exterior details, paint correction and ceramic
 > coating, carried out by hand at the customer's home or workplace.
 
+Based in Bradford, Ontario. Serves Bradford, Innisfil, East Gwillimbury, Newmarket,
+King Township and New Tecumseth.
+Phone: (647) 829-2242 — call or text for a quote.
+
 Services and starting prices (CAD):
 - Express Wash & Wax — $60
 - Interior Detail — $150
@@ -21,7 +25,7 @@ link that carries the booking details and the service terms. No deposit. Payment
 on completion.
 
 ## Pages
-- [Home](https://reflex08.github.io/banana-detail/): services, pricing, process and FAQ.
+- [Home](https://bananadetail.ca/): services, pricing, process and FAQ.
 
 Note: llms.txt is a community proposal, not a search standard, and no engine is known to
 require it. It costs nothing to publish and is kept consistent with the page itself.

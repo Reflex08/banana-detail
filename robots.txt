@@ -13,4 +13,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://reflex08.github.io/banana-detail/sitemap.xml
+Sitemap: https://bananadetail.ca/sitemap.xml
