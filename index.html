@@ -110,7 +110,7 @@
           {
             "@type": "Offer",
             "priceCurrency": "CAD",
-            "price": "150",
+            "price": "199",
             "itemOffered": {
               "@type": "Service",
               "name": "Full Detail (In & Out)"
@@ -173,7 +173,7 @@
           "name": "How much does car detailing cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Banana Detail starts at $60 for an express wash and wax, $140 to $150 for a single interior or exterior detail, and $150 for a full detail inside and out. The final price depends on the size and condition of the vehicle and is agreed before any work starts."
+            "text": "Banana Detail starts at $60 for an express wash and wax, $140 for an exterior detail, $150 for an interior detail, and $199 for a full detail inside and out. The final price depends on the size and condition of the vehicle and is agreed before any work starts."
           }
         },
         {
@@ -459,6 +459,15 @@
   .faq details[open] summary h3{color:var(--gold)}
   .faq p{margin:0 0 20px;color:var(--body);font-size:15.5px;padding-right:24px;max-width:70ch}
 
+  /* ---------- gallery & reviews placeholders ---------- */
+  .gallery-grid{display:grid;gap:14px;grid-template-columns:1fr}
+  @media(min-width:620px){ .gallery-grid{grid-template-columns:repeat(2,1fr)} }
+  .ph-slot{border:1px dashed var(--line-2);border-radius:var(--r);padding:38px 20px;
+    text-align:center;color:var(--muted);background:var(--paper);font-size:14px;margin:0}
+  .review-slot{border:1px dashed var(--line-2);border-radius:var(--r);padding:30px 20px;
+    text-align:center;color:var(--muted);background:var(--paper);font-size:14.5px;
+    max-width:800px;margin:0 auto}
+
   /* ---------- footer ---------- */
   footer{background:#100b06;color:var(--onDark-2);padding-block:46px;text-align:center;
     border-top:1px solid var(--espresso-line)}
@@ -497,7 +506,7 @@
       <a href="#how">How it works</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn sm hcta" data-tel href="tel:6478292242">Call</a>
+    <a class="btn sm hcta" data-tel href="tel:+16478292242">Call</a>
   </div>
 </header>
 
@@ -509,15 +518,14 @@
            alt="Banana Detail mascot holding a wash mitt and spray gun">
     </div>
     <p class="kicker">Mobile &middot; By appointment</p>
-    <h1>Car Detailing, <em>Done by Hand</em></h1>
+    <h1>Mobile Car Detailing in Bradford — <em>We Come to You</em></h1>
     <div class="rule"></div>
-    <p class="answer"><b>Car detailing is a deep clean and restoration of a vehicle inside
-      and out, done by hand rather than by machine.</b> Banana Detail covers interior
-      shampooing and exterior decontamination — mobile,
-      at your home or work in Bradford and the surrounding towns, from $60.</p>
+    <p class="answer"><b>We come to you — at home or at work in Bradford and the
+      surrounding towns.</b> Interior shampooing and exterior decontamination, done by
+      hand, from $60.</p>
     <div class="ctas">
-      <a class="btn" data-tel href="tel:6478292242">Call for a quote</a>
-      <a class="btn out" data-sms href="sms:6478292242?&amp;body=Hi%20Banana%20Detail%2C%20I'd%20like%20a%20quote%20for%20my%20car%3A">Text a photo</a>
+      <a class="btn" data-tel href="tel:+16478292242">Call for a quote</a>
+      <a class="btn out" data-sms href="sms:+16478292242?&amp;body=Hi%20Banana%20Detail%2C%20I'd%20like%20a%20quote%20for%20my%20car%3A">Text photos for a price</a>
     </div>
     <p class="trust"><span>We come to you</span><span>Price agreed before we start</span><span>No deposit to book</span></p>
   </div>
@@ -527,14 +535,14 @@
   <div class="wrap">
     <p class="eyebrow">Services</p>
     <h2>How much does car detailing cost?</h2>
-    <p class="lead"><b>Detailing starts at $60 for an express wash and wax and $150 for a
+    <p class="lead"><b>Detailing starts at $60 for an express wash and wax and $199 for a
       full detail inside and out.</b> The final figure depends on the size and condition of the vehicle, and it is
       agreed with you before any work begins.</p>
     <div class="grid rv">
       <details class="svc"><summary><span class="sname"><h3>Express Wash &amp; Wax</h3>
         <p>Hand wash, dry and a protective wax.</p></span><span class="price">from $60</span>
         <span class="chev">›</span></summary>
-        <ul class="more"><li>Two-bucket hand wash, no brushes</li><li>Wheels and tyres cleaned</li>
+        <ul class="more"><li>Two-bucket hand wash, no brushes</li><li>Wheels and tires cleaned</li>
         <li>Dried with plush towels, no swirls</li><li>Spray wax for a few weeks of protection</li></ul></details>
 
       <details class="svc"><summary><span class="sname"><h3>Interior Detail</h3>
@@ -542,7 +550,7 @@
         <span class="chev">›</span></summary>
         <ul class="more"><li>Full vacuum including boot and under mats</li><li>Carpets and seats shampooed</li>
         <li>Leather cleaned and conditioned</li><li>Plastics and vents dressed matte</li>
-        <li>Glass streak-free inside</li></ul></details>
+        <li>Glass streak-free inside</li><li>Light pet hair included</li></ul></details>
 
       <details class="svc"><summary><span class="sname"><h3>Exterior Detail</h3>
         <p>Decontaminate, restore and seal.</p></span><span class="price">from $140</span>
@@ -551,15 +559,27 @@
         <li>Trim restored and dressed</li><li>Paint sealed so it stays clean longer</li></ul></details>
 
       <details class="svc"><summary><span class="sname"><h3>Full Detail — In &amp; Out</h3>
-        <p>Everything above in one visit.</p></span><span class="price">from $150</span>
+        <p>Everything above in one visit.</p></span><span class="price">from $199</span>
         <span class="chev">›</span></summary>
         <ul class="more"><li>The complete interior detail</li><li>The complete exterior detail</li>
-        <li>Engine bay wiped down</li><li>The one to book before selling</li></ul></details>
+        <li>Engine bay wiped down</li><li>Light pet hair included</li>
+        <li>Full vacuum — seats, rails, boot, under the mats</li>
+        <li>Steam and shampoo on carpets and upholstery</li>
+        <li>Leather cleaned and conditioned, not greased</li>
+        <li>Plastics and vents detailed, dressed matte</li>
+        <li>Glass inside and out, streak-free</li>
+        <li>Two-bucket hand wash — no brushes, no swirls</li>
+        <li>Wheels, barrels and arches cleaned properly</li>
+        <li>Decontamination for tar and embedded fallout</li>
+        <li>Trim and tires restored and dressed</li>
+        <li>Sealant or wax so it stays clean longer</li>
+        <li>The one to book before selling</li></ul></details>
 
       <details class="svc"><summary><span class="sname"><h3>Engine Bay Cleaning</h3>
         <p>Degreased, rinsed and dressed.</p></span><span class="price">from $70</span>
         <span class="chev">›</span></summary>
-        <ul class="more"><li>Sensitive components covered first</li><li>Degreased and agitated by hand</li>
+        <ul class="more"><li>$50 when added to any detail — $70 on its own</li>
+        <li>Sensitive components covered first</li><li>Degreased and agitated by hand</li>
         <li>Plastics and hoses dressed</li><li>Makes a real difference at resale</li></ul></details>
 
       <details class="svc"><summary><span class="sname"><h3>Headlight Restoration</h3>
@@ -571,12 +591,35 @@
       <details class="svc"><summary><span class="sname"><h3>Pet Hair &amp; Odour</h3>
         <p>Lifted properly, not covered up.</p></span><span class="price">from $60</span>
         <span class="chev">›</span></summary>
-        <ul class="more"><li>Hair lifted with rubber and brush, then vacuumed</li>
+        <ul class="more"><li>Light pet hair is included in Interior Detail and Full Detail</li>
+        <li>This $60 service covers heavy pet hair and odour treatment</li>
+        <li>Hair lifted with rubber and brush, then vacuumed</li>
         <li>Fabric treated at the source of the smell</li><li>Vents and cabin filter checked</li></ul></details>
     </div>
-    <p class="note">Starting prices in Canadian dollars. Larger vehicles and heavily soiled
-      interiors take longer, and anything beyond the booked service is quoted before it is
-      started.</p>
+    <p class="note">Starting prices in Canadian dollars, for a sedan or coupe.
+      <b>Size adjustments:</b> SUV +$30; large SUV, 3-row, truck or van +$50 — applies to
+      Express Wash &amp; Wax, Exterior Detail, Interior Detail and Full Detail.
+      Engine Bay Cleaning is $50 when added to any detail, $70 on its own. Light pet hair
+      is included in Interior Detail and Full Detail; heavy pet hair and odour treatment
+      is the $60 service above. Larger vehicles and heavily soiled interiors take longer,
+      and anything beyond the booked service is quoted before it is started.</p>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <p class="eyebrow">Gallery</p>
+    <h2>Before &amp; after</h2>
+    <p class="lead"><b>Real cars, detailed where they were parked.</b> Before and after
+      photos from Banana Detail jobs will appear here.</p>
+    <!-- Placeholder slots only: Igor to supply real before/after photos of his own
+         work. No stock photos, no other company's work, no visible number plates. -->
+    <div class="gallery-grid rv">
+      <figure class="ph-slot">Before — photo coming</figure>
+      <figure class="ph-slot">After — photo coming</figure>
+      <figure class="ph-slot">Before — photo coming</figure>
+      <figure class="ph-slot">After — photo coming</figure>
+    </div>
   </div>
 </section>
 
@@ -594,7 +637,7 @@
           <tr><th scope="row">Express Wash &amp; Wax</th><td>A car already in good shape, kept that way</td><td>Under 1 hour</td><td>$60</td></tr>
           <tr><th scope="row">Interior Detail</th><td>Kids, pets, spills, smells, dusty plastics</td><td>2–3 hours</td><td>$150</td></tr>
           <tr><th scope="row">Exterior Detail</th><td>Road salt, brake dust, faded trim, rough paint</td><td>2–3 hours</td><td>$140</td></tr>
-          <tr><th scope="row">Full Detail</th><td>A car that hasn't been done in a year, or a sale</td><td>Half to full day</td><td>$150</td></tr>
+          <tr><th scope="row">Full Detail</th><td>A car that hasn't been done in a year, or a sale</td><td>Half to full day</td><td>$199</td></tr>
         </tbody>
       </table>
     </div>
@@ -623,35 +666,6 @@
   </div>
 </section>
 
-<section id="included">
-  <div class="wrap">
-    <p class="eyebrow">What's included</p>
-    <h2>What does a full detail actually include?</h2>
-    <p class="lead"><b>A full detail covers the whole interior and the whole exterior in one
-      visit.</b> Inside: vacuum, steam, shampoo, leather and plastics. Outside: a two-bucket
-      hand wash, decontamination, wheels and arches, trim, and a sealant so it stays clean
-      longer.</p>
-    <div class="cols rv">
-      <div><h3 style="margin-bottom:6px">Inside the car</h3>
-        <ul class="ilist">
-          <li><b>Full vacuum</b> — seats, rails, boot, under the mats</li>
-          <li><b>Steam and shampoo</b> on carpets and upholstery</li>
-          <li><b>Leather</b> cleaned and conditioned, not greased</li>
-          <li><b>Plastics and vents</b> detailed, dressed matte</li>
-          <li><b>Glass</b> inside and out, streak-free</li>
-        </ul></div>
-      <div><h3 style="margin-bottom:6px">Outside the car</h3>
-        <ul class="ilist">
-          <li><b>Two-bucket hand wash</b> — no brushes, no swirls</li>
-          <li><b>Wheels, barrels and arches</b> cleaned properly</li>
-          <li><b>Decontamination</b> for tar and embedded fallout</li>
-          <li><b>Trim and tyres</b> restored and dressed</li>
-          <li><b>Sealant or wax</b> so it stays clean longer</li>
-        </ul></div>
-    </div>
-  </div>
-</section>
-
 <section class="alt" id="faq">
   <div class="wrap">
     <p class="eyebrow">FAQ</p>
@@ -663,8 +677,8 @@
           interior, and washing, decontaminating, polishing and protecting the paint outside.
           A wash cleans a car; a detail restores it.</p></details>
       <details><summary><h3>How much does car detailing cost?</h3></summary>
-        <p>Banana Detail starts at $60 for an express wash and wax, $140 to $150 for a
-          single interior or exterior detail, and $150 for a full detail inside and out.
+        <p>Banana Detail starts at $60 for an express wash and wax, $140 for an exterior
+          detail, $150 for an interior detail, and $199 for a full detail inside and out.
           The final price depends on the size and condition of the vehicle and is agreed
           before any work starts.</p></details>
       <details><summary><h3>How long does car detailing take?</h3></summary>
@@ -699,6 +713,16 @@
   </div>
 </section>
 
+<section id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">Reviews</p>
+    <h2>What customers say</h2>
+    <!-- Structure only: Igor to supply 3–5 real customer reviews. Do not invent
+         review text, names, or ratings. -->
+    <div class="review-slot">Real reviews from Banana Detail customers will appear here.</div>
+  </div>
+</section>
+
 <section class="close">
   <div class="wrap">
     <p class="kicker">Ready when you are</p>
@@ -706,8 +730,8 @@
     <p class="lead" style="margin-bottom:22px">Send a photo of the car and you'll have a
       price back shortly.</p>
     <div class="ctas">
-      <a class="btn" data-tel href="tel:6478292242">Call now</a>
-      <a class="btn out" data-sms href="sms:6478292242?&amp;body=Hi%20Banana%20Detail%2C%20I'd%20like%20a%20quote%20for%20my%20car%3A">Text a photo</a>
+      <a class="btn" data-tel href="tel:+16478292242">Call now</a>
+      <a class="btn out" data-sms href="sms:+16478292242?&amp;body=Hi%20Banana%20Detail%2C%20I'd%20like%20a%20quote%20for%20my%20car%3A">Text a photo</a>
     </div>
   </div>
 </section>
@@ -716,19 +740,20 @@
 <footer>
   <div class="wrap">
     <img src="logo.png" alt="Banana Detail" width="112" height="100" loading="lazy">
-    <p style="margin:0"><a class="fnum" data-tel href="tel:6478292242" id="footphone">(647) 829-2242</a></p>
+    <p style="margin:0"><a class="fnum" data-tel href="tel:+16478292242" id="footphone">(647) 829-2242</a></p>
     <div class="frule"></div>
     <p class="fine">Banana Detail — mobile car detailing.<br>
       Interior and exterior detailing.<br>
-      Based in Bradford, serving Innisfil, East Gwillimbury, Newmarket, King Township
+      Service area: Bradford, Innisfil, East Gwillimbury, Newmarket, King Township
       &amp; New Tecumseth.<br>
+      Mobile by appointment.<br>
       <span id="footyear"></span></p>
   </div>
 </footer>
 
 <div class="dock">
-  <a class="btn" data-tel href="tel:6478292242">Call</a>
-  <a class="btn out" data-sms href="sms:6478292242?&amp;body=Hi%20Banana%20Detail%2C%20I'd%20like%20a%20quote%20for%20my%20car%3A">Text a photo</a>
+  <a class="btn" data-tel href="tel:+16478292242">Call</a>
+  <a class="btn out" data-sms href="sms:+16478292242?&amp;body=Hi%20Banana%20Detail%2C%20I'd%20like%20a%20quote%20for%20my%20car%3A">Text a photo</a>
 </div>
 
 <script>
@@ -757,11 +782,11 @@ var SMS_TEXT="Hi Banana Detail, I'd like a quote for my car:";
     var pretty=digits.length===10
       ? "("+digits.slice(0,3)+") "+digits.slice(3,6)+"-"+digits.slice(6) : PHONE;
     $$("[data-tel]").forEach(function(a){
-      a.href="tel:"+digits;
+      a.href="tel:+1"+digits;
       if(a.id==="footphone"||a.textContent.trim()==="Call")a.textContent=pretty;
     });
     $$("[data-sms]").forEach(function(a){
-      a.href="sms:"+digits+"?&body="+encodeURIComponent(SMS_TEXT);
+      a.href="sms:+1"+digits+"?&body="+encodeURIComponent(SMS_TEXT);
     });
   }
 
